@@ -1,18 +1,16 @@
 
-
 WriteLine ("Console Application Template for VS Code\nby Tom Schröter");
 
-var c = new Calculus  ()
-            .setValue (2D)
-            .add      (4D)
-            .multiply (6D)
-            .sqrt     ()
-            .square
-            ;
-
-c+= 10D;
-
-WriteLine ( c.value );
+WriteLine
+(
+    new Calculus  (2.0D)
+        .square
+        .root
+        .add      (4.0D)
+        .multiply (6.0D)
+        .operate  (Math.Sqrt)
+        .operate  (Math.Pow , 2.0D)
+        .value
+);
 
 WriteLine ($"\r\nOK @ {DateTime.Now}");
-

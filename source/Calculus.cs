@@ -1,14 +1,6 @@
 
 public sealed class Calculus
 {
-
-    public static Calculus operator + (Calculus obj, double value)
-    {
-
-
-        return obj.add (value);
-    }
-
     //-----------------------------------------------------
     // private field
 
@@ -27,44 +19,34 @@ public sealed class Calculus
     public Calculus (double value) => setValue (value);
 
     //-----------------------------------------------------
-    // functions
-
-    public Calculus square => this.apply ( _ => _value = (_value * _value) );
-
-    public Calculus sqrt ()
-    {
-        _value = Math.Sqrt (_value);
-        return this;
-    }
 
     public Calculus setValue (double value)
     {
         _value = value;
         return this;
     }
+    //-----------------------------------------------------
+    // members
 
-    public Calculus add (double value)
-    {
-        _value += value;
-        return this;
-    }
+    // as property
+    public Calculus square => setValue ( (_value * _value)  );
+    public Calculus root   => setValue ( Math.Sqrt (_value) );
 
-    public Calculus substract (double value)
-    {
-        _value -= value;
-        return this;
-    }
+    // as function
+    public Calculus add       (double value) => setValue ( _value + value );
+    public Calculus substract (double value) => setValue ( _value - value );
+    public Calculus multiply  (double value) => setValue ( _value * value );
+    public Calculus divide    (double value) => setValue ( _value / value );
 
-    public Calculus multiply (double value)
-    {
-        _value *= value;
-        return this;
-    }
+    // higher order
+    public Calculus operate (Func <double, double> operation)
+    =>
+        setValue ( operation?.Invoke (_value) ?? double.NaN );
 
-    public Calculus divide (double value)
-    {
-        _value /= value;
-        return this;
-    }
+    // higher order, 2 parameters
+    public Calculus operate (Func <double, double, double> operation, double value)
+    =>
+        setValue ( operation?.Invoke (_value, value) ?? double.NaN );
+
     //-----------------------------------------------------
 }
