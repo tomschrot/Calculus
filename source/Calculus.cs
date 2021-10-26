@@ -14,9 +14,7 @@ public sealed class Calculus
     //-----------------------------------------------------
     // constructors
 
-    public Calculus () {}
-
-    public Calculus (double value) => setValue (value);
+    public Calculus (double value = 0) => setValue (value);
 
     //-----------------------------------------------------
 

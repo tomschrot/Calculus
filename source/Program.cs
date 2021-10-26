@@ -1,5 +1,6 @@
 
-WriteLine ("Console Application Template for VS Code\nby Tom Schröter");
+WriteLine ("Cleaner C# Code durch Fluent API\nvon Tom Schröter\n");
+WriteLine ("Calculus:");
 
 WriteLine
 (
@@ -10,6 +11,7 @@ WriteLine
         .multiply (6.0D)
         .operate  (Math.Sqrt)
         .operate  (Math.Pow , 2.0D)
+        .operate  (Math.Sin)
         .value
 );
 
