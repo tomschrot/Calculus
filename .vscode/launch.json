@@ -14,7 +14,7 @@
             "program": "${workspaceFolder}/bin/Debug/net6/Calculus.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "justMyCode": false,
             "stopAtEntry": false
         },

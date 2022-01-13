@@ -2,6 +2,8 @@
 public sealed class Calculus
 {
     //-----------------------------------------------------
+    public static Calculus create (double value = 0) => new Calculus (value);
+    //-----------------------------------------------------
     // private field
 
     private double _value = 0D;
@@ -27,8 +29,9 @@ public sealed class Calculus
     // members
 
     // as property
-    public Calculus square => setValue ( (_value * _value)  );
     public Calculus root   => setValue ( Math.Sqrt (_value) );
+    public Calculus square => setValue ( (_value * _value)  );
+    public Calculus cubic  => setValue ( (_value * _value * _value)  );
 
     // as function
     public Calculus add       (double value) => setValue ( _value + value );
