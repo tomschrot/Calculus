@@ -2,7 +2,7 @@
 public sealed class Calculus
 {
     //-----------------------------------------------------
-    public static Calculus create (double value = 0) => new Calculus (value);
+    public static Calculus assign (double value = 0) => new Calculus (value);
     //-----------------------------------------------------
     // private field
 

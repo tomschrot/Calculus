@@ -3,31 +3,33 @@ WriteLine ("Cleaner C# Code durch Fluent API\nvon Tom Schröter\n");
 
 //-----------------------------------------------------------------------------
 WriteLine ("Calculus:");
+
 WriteLine
 (
     Calculus
-    .create   (2.0D)
+    .assign   (2.0D)
     .square
     .root
     .add      (4.0D)
     .multiply (6.0D)
     .operate  (Math.Sqrt)
     .operate  (Math.Pow , 2.0D)
-    .operate  (Math.Sin)
+    // .operate  (Math.Sin)
     .value
 );
 //-----------------------------------------------------------------------------
-string name = null;
+string name = "Donald Duck";
 
 while ( !name.IsValid() )
 {
-    WriteLine ("enter a valid name: ");
+    WriteLine ("Geben Sie bitte einen gültigen Namen ein:");
     name = ReadLine ();
 }
 
-WriteLine ($"Welcome {name}\n");
+WriteLine ($"Hallo {name}\n");
+
 //-----------------------------------------------------------------------------
-WriteLine ("Example for functional extensions:\n\n1. String.Split");
+WriteLine ("Beispiele für Fluent Functional Extension:\n\n1. String.Split");
 
 const StringSplitOptions SPLITOPTIONS =
       StringSplitOptions.None
@@ -35,9 +37,7 @@ const StringSplitOptions SPLITOPTIONS =
     | StringSplitOptions.TrimEntries
     ;
 
-var text = "Cleaner C# Code With Fluent API";
-
-text
+"Cleaner C# Code With Fluent API"
 .Split (' ', SPLITOPTIONS)
 .each  (word => WriteLine (word) )
 ;
@@ -46,7 +46,7 @@ WriteLine ("\n2. Reflection");
 
 typeof      (Calculus)
 .GetMembers ()
-.each       (member => WriteLine (member.Name))
+.each       (member => WriteLine (member))
 ;
 //-----------------------------------------------------------------------------
 WriteLine ($"\r\nOK @ {DateTime.Now}");
